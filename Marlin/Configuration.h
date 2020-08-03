@@ -132,7 +132,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "Tevo BW BLTouch"
+#define CUSTOM_MACHINE_NAME "Tevo BW BLTouch MMU" 
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like http://www.uuidgenerator.net/version4
@@ -503,9 +503,9 @@
   // #define  DEFAULT_Kd 28.44
 
   // Tevo Black Widow YYTAY  
-     #define  DEFAULT_Kp 12.19
-     #define  DEFAULT_Ki 1.53
-     #define  DEFAULT_Kd 24.21
+     #define  DEFAULT_Kp 15.08
+     #define  DEFAULT_Ki 1.59
+     #define  DEFAULT_Kd 35.83
 
   // MakerGear
   //#define DEFAULT_Kp 7.0
@@ -1003,7 +1003,7 @@
  *  #define NOZZLE_TO_PROBE_OFFSET { 45, -17, -.3 }
    Tay
 */
-#define NOZZLE_TO_PROBE_OFFSET { 25, 0, -2.6 }
+#define NOZZLE_TO_PROBE_OFFSET { 25, 0, -2.35 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
