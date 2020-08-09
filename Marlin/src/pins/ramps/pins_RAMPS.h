@@ -84,29 +84,67 @@
 //
 // Limit Switches
 //
+
+
+// 200509 YYTay Tevo Black Widow
+// Change the limit switch to accomodate MMU2.
+
+// #ifndef X_STOP_PIN
+//   #ifndef X_MIN_PIN
+//     #define X_MIN_PIN                          3
+//   #endif
+// #ifndef X_MAX_PIN
+//     #define X_MAX_PIN                          2
+//   #endif
+// #endif
+
 #ifndef X_STOP_PIN
   #ifndef X_MIN_PIN
     #define X_MIN_PIN                          3
   #endif
-  #ifndef X_MAX_PIN
-    #define X_MAX_PIN                          2
+#ifndef X_MAX_PIN
+    #define X_MAX_PIN                          -1
   #endif
 #endif
-#ifndef Y_STOP_PIN
-  #ifndef Y_MIN_PIN
-    #define Y_MIN_PIN                         14
+
+// 200509 YYTay Tevo Black Widow
+// Change the limit switch to accomodate MMU2.
+
+// #ifndef Y_STOP_PIN
+//   #ifndef Y_MIN_PIN
+//     #define Y_MIN_PIN                         14
+//  #endif
+//  #ifndef Y_MAX_PIN
+//    #define Y_MAX_PIN                         15
+//  #endif
+// #endif
+
+ #ifndef Y_STOP_PIN
+   #ifndef Y_MIN_PIN
+     #define Y_MIN_PIN                         14
   #endif
   #ifndef Y_MAX_PIN
-    #define Y_MAX_PIN                         15
+    #define Y_MAX_PIN                         -1
   #endif
-#endif
-#ifndef Z_STOP_PIN
-  #ifndef Z_MIN_PIN
-    #define Z_MIN_PIN                         18
+ #endif
+
+
+// #ifndef Z_STOP_PIN
+//   #ifndef Z_MIN_PIN
+//    #define Z_MIN_PIN                         18
+//  #endif
+//  #ifndef Z_MAX_PIN
+//    #define Z_MAX_PIN                         19
+//  #endif
+
+ #ifndef Z_STOP_PIN
+   #ifndef Z_MIN_PIN
+    #define Z_MIN_PIN                         15
   #endif
   #ifndef Z_MAX_PIN
-    #define Z_MAX_PIN                         19
+    #define Z_MAX_PIN                         -1
   #endif
+
 #endif
 
 //
@@ -169,11 +207,11 @@
   #define TEMP_BED_PIN                        14  // Analog Input
 #endif
 
-//
 // SPI for Max6675 or Max31855 Thermocouple
-//
-#ifndef MAX6675_SS_PIN
-  #define MAX6675_SS_PIN                      66  // Don't use 53 if using Display/SD card (SDSS) or 49 (SD_DETECT_PIN)
+#if DISABLED(SDSUPPORT)
+  #define MAX6675_SS_PIN                      66  // Don't use 53 if using Display/SD card
+#else
+  #define MAX6675_SS_PIN                      66  // Don't use 49 (SD_DETECT_PIN)
 #endif
 
 //
