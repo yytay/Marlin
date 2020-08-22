@@ -506,7 +506,7 @@
   // Tevo Black Widow YYTAY  
      #define  DEFAULT_Kp 26.33
      #define  DEFAULT_Ki 3.15
-     #define  DEFAULT_Kd 35.83
+     #define  DEFAULT_Kd 54.99
 
   // MakerGear
   //#define DEFAULT_Kp 7.0
