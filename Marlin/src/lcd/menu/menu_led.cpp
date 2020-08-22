@@ -28,7 +28,7 @@
 
 #if HAS_LCD_MENU && EITHER(LED_CONTROL_MENU, CASE_LIGHT_MENU)
 
-#include "menu.h"
+#include "menu_item.h"
 
 #if ENABLED(LED_CONTROL_MENU)
   #include "../../feature/leds/leds.h"
@@ -37,7 +37,7 @@
     void menu_led_presets() {
       START_MENU();
       #if LCD_HEIGHT > 2
-        STATIC_ITEM(MSG_LED_PRESETS, SS_CENTER|SS_INVERT);
+        STATIC_ITEM(MSG_LED_PRESETS, SS_DEFAULT|SS_INVERT);
       #endif
       BACK_ITEM(MSG_LED_CONTROL);
       ACTION_ITEM(MSG_SET_LEDS_WHITE, leds.set_white);
