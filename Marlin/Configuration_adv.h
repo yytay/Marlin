@@ -3458,7 +3458,7 @@
   // Use hardware reset for MMU if a pin is defined for it
   // 24-May-2020 YYTay   Use Max X pin for reset
   //#define MMU2_RST_PIN 23
-  #define MMU2_RST_PIN  2
+ // #define MMU2_RST_PIN  2 # 230820 YYTAY Tevo
 
   // Enable if the MMU2 has 12V stepper motors (MMU2 Firmware 1.0.2 and up)
   //#define MMU2_MODE_12V
@@ -3489,9 +3489,9 @@
       { -14.0, 1200 }, \
       {  -6.0,  600 }, \
       {  10.0,  700 }, \
-      {  -1.0, 5000 }, \
-      {  -1.0, 1000 }, \
-      {  -8.0,  100 }, \
+      {  -3.0, 5000 }, \
+      {  -2.0, 1000 }, \
+      {  -5.0,  700 }, \
       { -50.0, 2000 }
   #endif
 
