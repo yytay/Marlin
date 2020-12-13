@@ -185,7 +185,7 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_BIGTREE_SKR_V1_3
+  #define MOTHERBOARD BOARD_BTT_SKR_V1_3
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
@@ -549,21 +549,22 @@
   #if ENABLED(PID_PARAMS_PER_HOTEND)
     // Specify between 1 and HOTENDS values per array.
     // If fewer than EXTRUDER values are provided, the last element will be repeated.
-    #define DEFAULT_Kp_LIST {  22.20,  20.0 }
-    #define DEFAULT_Ki_LIST {   1.08,   1.0 }
-    #define DEFAULT_Kd_LIST { 114.00, 112.0 }
+    #define DEFAULT_Kp_LIST {  15.99,  15.99 }
+    #define DEFAULT_Ki_LIST {   1.02,   1.0 }
+    #define DEFAULT_Kd_LIST { 62.42, 62 }
   #else
-    #define DEFAULT_Kp  22.20
+    #define DEFAULT_Kp  15.99
     #define DEFAULT_Ki   1.08
-    #define DEFAULT_Kd 114.00
+    #define DEFAULT_Kd  62.42
   #endif                                  
   #define PID_FUNCTIONAL_RANGE 10 // If the temperature difference between the target temperature and the actual temperature
                                   // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
 
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
-  #define DEFAULT_Kp 15.99
-  #define DEFAULT_Ki 1.02
-  #define DEFAULT_Kd 62.42
+  // legacu SecKit Go
+  // #define DEFAULT_Kp 15.99
+  // #define DEFAULT_Ki 1.02
+  // #define DEFAULT_Kd 62.42
 
   // Ultimaker
   // #define DEFAULT_Kp 22.2
@@ -1158,7 +1159,7 @@
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define MIN_PROBE_EDGE 10
+#define PROBING_MARGIN 10
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 6000
@@ -1267,9 +1268,9 @@
 
 #else
 
-  #define INVERT_X_DIR false
-  #define INVERT_Y_DIR false
-  #define INVERT_E0_DIR true
+  #define INVERT_X_DIR true
+  #define INVERT_Y_DIR true
+  #define INVERT_E0_DIR false
 
   #if SK_BELTED_Z
     #define INVERT_Z_DIR true
@@ -1365,8 +1366,8 @@
 #define FILAMENT_RUNOUT_SENSOR
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
   #define NUM_RUNOUT_SENSORS   1     // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
-  // #define FIL_RUNOUT_INVERTING false // old SK-Mini: false
-  #define FIL_RUNOUT_INVERTING true // Set to true to invert the logic of the sensor.
+  // #define FIL_RUNOUT_STATE HIGH // old SK-Mini: false
+  #define FIL_RUNOUT_STATE HIGH // Set to true to invert the logic of the sensor.
   #define FIL_RUNOUT_PULLUP          // Use internal pullup for filament runout pins.
   //#define FIL_RUNOUT_PULLDOWN      // Use internal pulldown for filament runout pins.
 

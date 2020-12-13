@@ -1014,28 +1014,29 @@
 
   //#define DIGIPOT_USE_RAW_VALUES    // Use DIGIPOT_MOTOR_CURRENT raw wiper values (instead of A4988 motor currents)
 
-// Use an I2C based DIGIPOT (e.g., Azteeg X3 Pro)
-//#define DIGIPOT_I2C
-#if ENABLED(DIGIPOT_I2C) && !defined(DIGIPOT_I2C_ADDRESS_A)
-  /**
-   * Common slave addresses:
-   *
-   *                        A   (A shifted)   B   (B shifted)  IC
-   * Smoothie              0x2C (0x58)       0x2D (0x5A)       MCP4451
-   * AZTEEG_X3_PRO         0x2C (0x58)       0x2E (0x5C)       MCP4451
-   * AZTEEG_X5_MINI        0x2C (0x58)       0x2E (0x5C)       MCP4451
-   * AZTEEG_X5_MINI_WIFI         0x58              0x5C        MCP4451
-   * MIGHTYBOARD_REVE      0x2F (0x5E)                         MCP4018
-   */
-  #define DIGIPOT_I2C_ADDRESS_A 0x2C  // unshifted slave address for first DIGIPOT
-  #define DIGIPOT_I2C_ADDRESS_B 0x2D  // unshifted slave address for second DIGIPOT
-#endif
+  // Use an I2C based DIGIPOT (e.g., Azteeg X3 Pro)
+  //#define DIGIPOT_I2C
+  #if ENABLED(DIGIPOT_I2C) && !defined(DIGIPOT_I2C_ADDRESS_A)
+    /**
+    * Common slave addresses:
+    *
+    *                        A   (A shifted)   B   (B shifted)  IC
+    * Smoothie              0x2C (0x58)       0x2D (0x5A)       MCP4451
+    * AZTEEG_X3_PRO         0x2C (0x58)       0x2E (0x5C)       MCP4451
+    * AZTEEG_X5_MINI        0x2C (0x58)       0x2E (0x5C)       MCP4451
+    * AZTEEG_X5_MINI_WIFI         0x58              0x5C        MCP4451
+    * MIGHTYBOARD_REVE      0x2F (0x5E)                         MCP4018
+    */
+    #define DIGIPOT_I2C_ADDRESS_A 0x2C  // unshifted slave address for first DIGIPOT
+    #define DIGIPOT_I2C_ADDRESS_B 0x2D  // unshifted slave address for second DIGIPOT
+  #endif
 
-//#define DIGIPOT_MCP4018          // Requires library from https://github.com/stawel/SlowSoftI2CMaster
-#define DIGIPOT_I2C_NUM_CHANNELS 8 // 5DPRINT: 4     AZTEEG_X3_PRO: 8     MKS SBASE: 5
-// Actual motor currents in Amps. The number of entries must match DIGIPOT_I2C_NUM_CHANNELS.
-// These correspond to the physical drivers, so be mindful if the order is changed.
-#define DIGIPOT_I2C_MOTOR_CURRENTS { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 }  //  AZTEEG_X3_PRO
+  //#define DIGIPOT_MCP4018          // Requires library from https://github.com/stawel/SlowSoftI2CMaster
+  #define DIGIPOT_I2C_NUM_CHANNELS 8 // 5DPRINT: 4     AZTEEG_X3_PRO: 8     MKS SBASE: 5
+  // Actual motor currents in Amps. The number of entries must match DIGIPOT_I2C_NUM_CHANNELS.
+  // These correspond to the physical drivers, so be mindful if the order is changed.
+  #define DIGIPOT_I2C_MOTOR_CURRENTS { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 }  //  AZTEEG_X3_PRO
+#endif
 
 //===========================================================================
 //=============================Additional Features===========================
@@ -1135,11 +1136,11 @@
       //#define ROTATE_PROGRESS_DISPLAY // Display (P)rogress, (E)lapsed, and (R)emaining time
     #endif
 
-  #if HAS_MARLINUI_U8GLIB
-    //#define PRINT_PROGRESS_SHOW_DECIMALS // Show progress with decimal digits  
-    //#define USE_M73_REMAINING_TIME     // Use remaining time from M73 command instead of estimation
-    //#define ROTATE_PROGRESS_DISPLAY    // Display (P)rogress, (E)lapsed, and (R)emaining time
-  #endif
+    #if HAS_MARLINUI_U8GLIB
+      //#define PRINT_PROGRESS_SHOW_DECIMALS // Show progress with decimal digits  
+      //#define USE_M73_REMAINING_TIME     // Use remaining time from M73 command instead of estimation
+      //#define ROTATE_PROGRESS_DISPLAY    // Display (P)rogress, (E)lapsed, and (R)emaining time
+    #endif
   
   #endif
 
@@ -1152,16 +1153,20 @@
       //#define PROGRESS_MSG_ONCE         // Show the message for MSG_TIME then clear it
       //#define LCD_PROGRESS_BAR_TEST     // Add a menu item to test the progress bar
     #endif
-#if HAS_CHARACTER_LCD && HAS_PRINT_PROGRESS
-  //#define LCD_PROGRESS_BAR              // Show a progress bar on HD44780 LCDs for SD printing
-  #if ENABLED(LCD_PROGRESS_BAR)
-    #define PROGRESS_BAR_BAR_TIME 2000    // (ms) Amount of time to show the bar
-    #define PROGRESS_BAR_MSG_TIME 3000    // (ms) Amount of time to show the status message
-    #define PROGRESS_MSG_EXPIRE   0       // (ms) Amount of time to retain the status message (0=forever)
-    //#define PROGRESS_MSG_ONCE           // Show the message for MSG_TIME then clear it
-    //#define LCD_PROGRESS_BAR_TEST       // Add a menu item to test the progress bar
+    #if HAS_CHARACTER_LCD && HAS_PRINT_PROGRESS
+       //#define LCD_PROGRESS_BAR              // Show a progress bar on HD44780 LCDs for SD printing
+      #if ENABLED(LCD_PROGRESS_BAR)
+        #define PROGRESS_BAR_BAR_TIME 2000    // (ms) Amount of time to show the bar
+        #define PROGRESS_BAR_MSG_TIME 3000    // (ms) Amount of time to show the status message
+        #define PROGRESS_MSG_EXPIRE   0       // (ms) Amount of time to retain the status message (0=forever)
+        //#define PROGRESS_MSG_ONCE           // Show the message for MSG_TIME then clear it
+        //#define LCD_PROGRESS_BAR_TEST       // Add a menu item to test the progress bar
+      #endif
+    #endif
   #endif
 #endif
+
+
 
 #if ENABLED(SDSUPPORT)
 
@@ -1177,7 +1182,7 @@
   // as SD_DETECT_PIN in your board's pins definitions.
   // This setting should be disabled unless you are using a push button, pulling the pin to ground.
   // Note: This is always disabled for ULTIPANEL (except ELB_FULL_GRAPHIC_CONTROLLER).
-  #define SD_DETECT_INVERTED
+  #define SD_DETECT_STATE HIGH
 
   #define SD_FINISHED_STEPPERRELEASE true          // Disable steppers when SD Print is finished
   #define SD_FINISHED_RELEASECOMMAND "M84 X Y Z E" // You might want to keep the Z enabled so your bed stays in place.
@@ -1190,7 +1195,7 @@
 
   //#define MENU_ADDAUTOSTART               // Add a menu option to run auto#.g files
 
-  #define EVENT_GCODE_SD_STOP "G28XY"       // G-code to run on Stop Print (e.g., "G28XY" or "G27")
+  #define EVENT_GCODE_SD_ABORT "G28XY"       // G-code to run on Stop Print (e.g., "G28XY" or "G27")
 
   #if ENABLED(PRINTER_EVENT_LEDS)
     #define PE_LEDS_COMPLETED_TIME  (30*60) // (seconds) Time to keep the LED "done" color before restoring normal illumination
