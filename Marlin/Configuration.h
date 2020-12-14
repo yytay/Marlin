@@ -1275,7 +1275,7 @@
   #if SK_BELTED_Z
     #define INVERT_Z_DIR true
   #else
-    #define INVERT_Z_DIR true
+    #define INVERT_Z_DIR false
   #endif
 
 #endif
