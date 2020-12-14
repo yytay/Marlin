@@ -900,7 +900,7 @@
 #if (SK_USTEPS == 8)
   #define STEPS_E 196.2
 #elif (SK_USTEPS == 16)
-  #define STEPS_E 392.4
+  #define STEPS_E 421.94
 #endif
 
 
@@ -1268,14 +1268,14 @@
 
 #else
 
-  #define INVERT_X_DIR true
-  #define INVERT_Y_DIR true
-  #define INVERT_E0_DIR false
+  #define INVERT_X_DIR false
+  #define INVERT_Y_DIR false
+  #define INVERT_E0_DIR true
 
   #if SK_BELTED_Z
     #define INVERT_Z_DIR true
   #else
-    #define INVERT_Z_DIR false
+    #define INVERT_Z_DIR true
   #endif
 
 #endif
