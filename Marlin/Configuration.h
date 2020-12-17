@@ -35,7 +35,7 @@
 #define SK_STEPPER    18                  // 18 for 1.8 degree, 9 for 0.9 degree stepper
 #define SK_USTEPS     16                  // microsteps used in firmware. TMC drivers will interpolate to 256.
 
-#define SK_REVERSE_CABLE_SEQUENCE       false   // if steppers turn reversely, either set this definition or change cable sequence
+#define SK_REVERSE_CABLE_SEQUENCE       true   // if steppers turn reversely, either set this definition or change cable sequence
 
 #define SK_BELTED_Z           false       // set true for settings for Belt-Z
 #define SK_USE_S42B           false       // BTT Servo S42B
