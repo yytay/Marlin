@@ -1311,7 +1311,7 @@
 
 // The size of the print bed
 #define SK_X_BED_SIZE  310
-#define SK_Y_BED_SIZE  310
+#define SK_Y_BED_SIZE  300
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 // Ernest: (0, 0) is the corner of bed.
